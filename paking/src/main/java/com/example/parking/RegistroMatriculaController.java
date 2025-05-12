@@ -69,4 +69,8 @@ public class RegistroMatriculaController {
 
         return coste;
     }
+    @GetMapping("/historico")
+    public List<RegistroMatricula> obtenerHistorico(@RequestParam String matricula) {
+        return registroRepo.findByMatriculaOrderByHoraDesc(matricula);
+    }
 }
